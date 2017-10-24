@@ -12,4 +12,5 @@ echo Running snpEff on $bam
 snpEffSettings="-nodownload -noNextProt -noMotif -noStats -classic -no PROTEIN_PROTEIN_INTERACTION_LOCUS -no PROTEIN_STRUCTURAL_INTERACTION_LOCUS"
 java -Xmx10000m -jar /app/snpEff/snpEff.jar -v $snpEffSettings GRCh38.86 /tmp/mini.vcf >  ${outputs}/mini.ann.vcf
 
-# rm /tmp/mini.vcf
+# echo Summarizing vcf
+# python3 /app/summarize.py ${outputs}/mini.ann.vcf > ${outputs}/mini.ann.tsv
