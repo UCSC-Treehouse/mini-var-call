@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Install snpEff
-RUN wget -nv http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip \
-  && unzip snpEff_latest_core.zip && rm snpEff_latest_core.zip
+RUN wget -nv http://sourceforge.net/projects/snpeff/files/snpEff_v4_3t_core.zip \
+  && unzip snpEff_v4_3t_core.zip && rm snpEff_v4_3t_core.zip
 RUN java -jar ./snpEff/snpEff.jar download GRCh38.86
 
 # Install freebayes
