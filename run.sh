@@ -4,6 +4,14 @@ fasta=$1
 bam=$2
 outputs=$3
 
+set 
+for file in "$@"
+do
+    if [ ! -e "$file" ]
+    then echo "$file is missing" >&2; exit 1
+    fi
+done
+
 echo Running freebayes on $bam
 freeBayesSettings="--dont-left-align-indels --pooled-continuous --pooled-discrete -F 0.03 -C 2"
 /app/freebayes/bin/freebayes --targets /app/th_precise_merged.bed $freeBayesSettings -f $fasta $bam >  /tmp/mini.vcf
