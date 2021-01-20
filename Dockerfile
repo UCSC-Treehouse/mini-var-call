@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install JDK
 RUN add-apt-repository ppa:openjdk-r/ppa -y
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  openjdk-8-jdk=8u162-b12-1~14.04 \
+  openjdk-8-jdk \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
