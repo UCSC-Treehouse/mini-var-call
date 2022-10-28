@@ -19,13 +19,13 @@ docker run --rm \
 
 Directly:
 
-  run.sh <path to fasta> <path to bam> <path to output folder> 
+  run.sh <path to fasta> <path to bam> <path to output folder> <and optionally, a bed file; default uses bed file specified in run.sh>
 
 NOTE: See Dockerfile for installation of required libraries
 
 ## Input
 
-The docker takes as arguments the locations of a coordinate-sorted bam and the  GCA_000001405.15_GRCh38_no_alt_analysis_set.fa. The fasta file must have a corresponding index file. The bam file may have a corresponding index file (bai). It will greatly increase the speed (15 min -> 3 min for the file I tested time on), but indexing takes long enough that it doesn't improve the overall time required to index the bam file for this purpose alone. 
+The docker takes as arguments the locations of a GRCh38 fasta geneome, a coordinate-sorted bam, an output folder, and, optionally, the path to a bed file specifying the genomic regions to be called. The fasta file must have a corresponding index file. The bam file may have a corresponding index file (bai). If the bam files has a corresponding index file, it will be used rather than regenerating one, which reduced the run time from 15 min to 3 min for the file I tested time on. 
     
 ## Output
 
